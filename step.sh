@@ -29,6 +29,7 @@ function echoStatusFailed {
 write_section_to_formatted_output "# IPA Info"
 
 echo "BITRISE_IPA_PATH: $BITRISE_IPA_PATH"
+echo ""
 
 # IPA
 if [[ ! -f "$BITRISE_IPA_PATH" ]]; then

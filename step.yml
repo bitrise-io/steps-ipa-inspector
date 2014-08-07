@@ -1,0 +1,41 @@
+name: IPA Inspector
+description: |
+  Inspects the contents of an IPA and saves it's values as environment variables.
+
+
+inputs:
+  - title: |
+      BITRISE Archive Step's IPA path output (passed automatically)
+    mapped_to: BITRISE_IPA_PATH
+
+outputs:
+  - title: |
+      Step's result: 'success' or 'failed'
+    mapped_to: IPA_INSPECTOR_STATUS
+  - title: |
+      Size of the IPA
+    mapped_to: IPA_SIZE
+  - title: |
+      An identifier string that specifies the app type of the bundle.
+    mapped_to: IPA_IDENTIFIER
+  - title: |
+      The actual name of the bundle
+    mapped_to: IPA_DISPLAY_NAME
+  - title: |
+      Build version number of the bundle
+    mapped_to: IPA_VERSION
+  - title: |
+      Release version number of the bundle
+    mapped_to: IPA_SHORT_VERSION
+  - title: |
+      Date when the IPA was created
+    mapped_to: IPA_CREATION_DATE
+  - title: |
+      Date till the signed IPA is valid
+    mapped_to: IPA_EXPIRATION_DATE
+  - title: |
+      Valid device UDIDs that can install the IPA
+    mapped_to: IPA_PROVISION_DEVICES
+  - title: |
+      App's icon
+    mapped_to: IPA_ICON
