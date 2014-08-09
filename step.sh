@@ -15,6 +15,8 @@ function write_section_to_formatted_output {
 }
 
 function echoStatusFailed {
+  ./keychain.sh remove
+
   echo "export IPA_INSPECTOR_STATUS=\"failed\"" >> ~/.bash_profile
   echo
   echo "IPA_INSPECTOR_STATUS: \"failed\""
@@ -40,6 +42,8 @@ if [[ ! -f "$BITRISE_IPA_PATH" ]]; then
   exit 1
 fi
 
+./keychain.sh add
+
 echo "$ ruby inspect_ipa.rb \"$BITRISE_IPA_PATH\""
 ruby inspect_ipa.rb "$BITRISE_IPA_PATH" "~/.bash_profile" "$formatted_output_file_path"
 
@@ -50,6 +54,8 @@ if [ $? -ne 0 ]; then
   echoStatusFailed
   exit 1
 fi
+
+./keychain.sh remove
 
 echo "export IPA_INSPECTOR_STATUS=\"success\"" >> ~/.bash_profile
 echo
