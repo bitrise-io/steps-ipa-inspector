@@ -11,7 +11,7 @@ module Lagunitas
     end
 
     def embedded
-      @embedded ||= CFPropertyList.native_types(CFPropertyList::List.new(data: `security cms -D -i #{File.join(@path, 'embedded.mobileprovision')}`).value)
+      @embedded ||= CFPropertyList.native_types(CFPropertyList::List.new(data: `security cms -D -i "#{File.join(@path, 'embedded.mobileprovision')}"`).value)
     end
 
     def identifier
@@ -74,13 +74,13 @@ module Lagunitas
       return nil unless File.exist?(path)
 
       uncrushed_path = File.join(@path, "#{name}_u.png")
-      `xcrun -sdk iphoneos pngcrush -revert-iphone-optimizations -q #{path} #{uncrushed_path}`
+      `xcrun -sdk iphoneos pngcrush -revert-iphone-optimizations -q "#{path}" "#{uncrushed_path}"`
 
       {
         path: path,
         uncrushed_path: uncrushed_path,
-        width: `sips -g pixelWidth #{path} | tail -n1 | cut -d" " -f4`.to_i,
-        height: `sips -g pixelHeight #{path} | tail -n1 | cut -d" " -f4`.to_i
+        width: `sips -g pixelWidth "#{path}" | tail -n1 | cut -d" " -f4`.to_i,
+        height: `sips -g pixelHeight "#{path}" | tail -n1 | cut -d" " -f4`.to_i
       }
     rescue Errno::ENOENT
       nil
