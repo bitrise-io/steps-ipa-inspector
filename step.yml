@@ -12,7 +12,7 @@ host_os_tags:
 type_tags:
   - environment
   - ipa
-requires_admin_user: false
+is_requires_admin_user: false
 
 inputs:
   - title: |
