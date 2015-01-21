@@ -44,7 +44,12 @@ save_env "IPA_VERSION", @app.version
 save_env "IPA_SHORT_VERSION", @app.short_version
 save_env "IPA_CREATION_DATE", @app.creation_date.to_i
 save_env "IPA_EXPIRATION_DATE", @app.expiration_date.to_i
-save_env "IPA_PROVISION_DEVICES", @app.provision_devices.join(", ")
+
+unless @app.provision_devices
+  save_env "IPA_PROVISION_DEVICES", ""
+else
+  save_env "IPA_PROVISION_DEVICES", @app.provision_devices.join(", ")
+end
 
 icons = [512, 256, 120, 60, 40]
 icons.each do |size|
