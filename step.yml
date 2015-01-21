@@ -2,6 +2,17 @@ name: IPA Inspector
 description: |
   Inspects the contents of an IPA and saves it's values as environment variables.
 
+website: https://github.com/samcassatt/steps-ipa-inspector
+source:
+  git: https://github.com/samcassatt/steps-ipa-inspector.git
+
+host_os_tags:
+  - osx-10.9
+  - osx-10.10
+type_tags:
+  - environment
+  - ipa
+is_requires_admin_user: false
 
 inputs:
   - title: |
