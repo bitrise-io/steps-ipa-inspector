@@ -1,11 +1,9 @@
 name: IPA Inspector
 description: |
   Inspects the contents of an IPA and saves it's values as environment variables.
-
-website: https://github.com/samcassatt/steps-ipa-inspector
+website: https://github.com/bitrise-io/steps-ipa-inspector
 source:
-  git: https://github.com/samcassatt/steps-ipa-inspector.git
-
+  git: https://github.com/bitrise-io/steps-ipa-inspector.git
 host_os_tags:
   - osx-10.9
   - osx-10.10
@@ -13,12 +11,10 @@ type_tags:
   - environment
   - ipa
 is_requires_admin_user: false
-
 inputs:
   - title: |
       BITRISE Archive Step's IPA path output (passed automatically)
     mapped_to: BITRISE_IPA_PATH
-
 outputs:
   - title: |
       Step's result: 'success' or 'failed'
